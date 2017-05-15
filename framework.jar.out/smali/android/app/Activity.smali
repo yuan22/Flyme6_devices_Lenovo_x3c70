@@ -14,6 +14,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/app/Activity$TintBarInject;,
+        Landroid/app/Activity$FlymeDecorView;,
         Landroid/app/Activity$HostCallbacks;,
         Landroid/app/Activity$TranslucentConversionListener;,
         Landroid/app/Activity$ManagedCursor;,
@@ -366,6 +368,12 @@
     iput-object v0, p0, Landroid/app/Activity;->mExitTransitionListener:Landroid/app/SharedElementCallback;
 
     iput-boolean v1, p0, Landroid/app/Activity;->mInitialized:Z
+
+    new-instance v0, Landroid/app/Activity$TintBarInject;
+
+    invoke-direct {v0, p0}, Landroid/app/Activity$TintBarInject;-><init>(Landroid/app/Activity;)V
+
+    iput-object v0, p0, Landroid/app/Activity;->mInject:Landroid/app/Activity$TintBarInject;
 
     return-void
 .end method
@@ -5382,6 +5390,10 @@
 
     .end local v0    # "wm":Landroid/view/ViewManager;
     :cond_0
+    iget-object v1, p0, Landroid/app/Activity;->mInject:Landroid/app/Activity$TintBarInject;
+
+    invoke-virtual {v1}, Landroid/app/Activity$TintBarInject;->onStart()V
+
     invoke-direct {p0}, Landroid/app/Activity;->hookMakeVisibleForTintAndIconTheme()V
 
     iget-object v1, p0, Landroid/app/Activity;->mDecor:Landroid/view/View;
@@ -7710,6 +7722,8 @@
     iput-boolean v0, p0, Landroid/app/Activity;->mCalled:Z
 
     invoke-static {p0}, Lcom/lenovo/common/SecurityManagerUtils;->checkAppLockForTask(Landroid/app/Activity;)V
+
+    invoke-direct/range {p0 .. p0}, Landroid/app/Activity;->injectAccessControl()V
 
     return-void
 .end method
