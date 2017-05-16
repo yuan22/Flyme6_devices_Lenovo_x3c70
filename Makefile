@@ -183,4 +183,10 @@ USE_ASSERTIONS_IN_UPDATER_SCRIPT := false
 #-----------------------------------------------------------------------------
 #PRODUCE_INTERNATIONAL_ROM := true
 
+##############################################################################
+# Defines whether use sepolicy inject.
+# Default: true
+#-----------------------------------------------------------------------------
+#PRODUCE_SEPOLICY_INJECT := false
+
 include $(PORT_BUILD)/main.mk
