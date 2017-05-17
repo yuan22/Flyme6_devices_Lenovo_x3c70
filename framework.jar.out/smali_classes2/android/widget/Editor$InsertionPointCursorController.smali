@@ -48,6 +48,16 @@
     return-void
 .end method
 
+.method synthetic constructor <init>(Landroid/widget/Editor;Landroid/widget/Editor$InsertionPointCursorController;)V
+    .locals 0
+    .param p1, "this$0"    # Landroid/widget/Editor;
+
+    .prologue
+    invoke-direct {p0, p1}, Landroid/widget/Editor$InsertionPointCursorController;-><init>(Landroid/widget/Editor;)V
+
+    return-void
+.end method
+
 .method static synthetic access$2900(Landroid/widget/Editor$InsertionPointCursorController;)Landroid/widget/Editor$InsertionHandleView;
     .locals 1
     .param p0, "x0"    # Landroid/widget/Editor$InsertionPointCursorController;
