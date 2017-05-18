@@ -40,7 +40,9 @@ vendor_modify_images := boot
 # The default value is app or pri-app which not need to configure.
 # You can configure the directory name which relative to the vendor/system directory.
 #-----------------------------------------------------------------------------
-#vendor_remove_dirs := vendor/operator/app
+vendor_remove_dirs := preload/Alipay preload/FileBrowser preload/LenovoSync preload/SogouInput preload/AlipaySec preload/GameWorld_Phone preload/UCBrowser preload/AnyShare preload/LeVoiceMenuAssist preload/WidgetTencentPortfolio \
+		preload/BaiduMap preload/JDMall preload/MobileQQ preload/WidgetXiaoZhi preload/BaiduSearch preload/LenovoCalculator preload/NetEaseNews preload/WPSoffice preload/changba preload/PinganWiFi preload/Dianping \
+		preload/LenovoService preload/Qunar preload/EastWealth preload/LenovoSoundRecorder preload/SinaWeibo
 
 ##############################################################################
 # The value decides the file which you want to remove in the vendor directory for the ota package.
@@ -54,7 +56,9 @@ vendor_modify_images := boot
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/priv-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := Bluetooth BluetoothExt BluetoothMidiService HTMLViewer KeyChain NfcNci PicoTts PrintSpooler Stk UserDictionaryProvider BackupRestoreConfirmation DefaultContainerService ExternalStorageProvider FusedLocation InputDevices LenovoNfc ProxyHandler SharedStorageBackup Shell
+vendor_saved_apps := Bluetooth BluetoothExt BluetoothMidiService HTMLViewer KeyChain NfcNci PicoTts PrintSpooler Stk UserDictionaryProvider BackupRestoreConfirmation DefaultContainerService ExternalStorageProvider FusedLocation InputDevices LenovoNfc ProxyHandler SharedStorageBackup Shell \
+		AlipayFingerprintProvider FingerprintServiceExtension FMService HeadsetSettings HifiSettings HQSound LenovoBreathingLight LenovoFingerCamera LenovoGestureLightUp LenovoGestureLock LenovoScreenMode LenovoSmartScene LenovoSnapShot nfc_sim shutdownlistener telresources TimeService \
+		eNF_Plug GmsCore GoogleLoginService GoogleServicesFramework LenovoCamera LenovoSchedulePowerOnOff LenovoVRMode PicFocus qcrilmsgtunnel WideSelfie WideTouch
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
@@ -93,7 +97,7 @@ vendor_modify_jars := com.qti.dpmframework framework oem-services qti-telephony-
 # The default value is nothing.
 # You can configure the board system apk name in the value.
 #-----------------------------------------------------------------------------
-#board_remove_apps := LogReport
+board_remove_apps := LogReport
 
 ##############################################################################
 # The value decides which apk you want to modify, when the apk is based on the board system apk.
@@ -138,8 +142,8 @@ board_modify_apps := TeleService
 # The default value is Nexus-6P_Unofficial.
 # You should configure the property according to your device and your ID with replace the "Nexus-6P_Unofficial".
 override_property += \
-    ro.flyme.romer=Unofficial \
-    ro.product.model_romer=Nexus-6P_Unofficial
+    ro.flyme.romer=garyyiu2015 \
+    ro.product.model_romer=Lenovo-X3_garyyiu2015
 
 ##############################################################################
 # The value decides which property you will remove from the build.prop.
