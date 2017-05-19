@@ -12,3 +12,9 @@ if [ "$jarBaseName" = "framework" ];then
         mv -v $tempSmaliDir/smali/${moveDirs[$dir_name]} $tempSmaliDir/smali_classes2/${moveDirs[$dir_name]}
     done
 fi
+
+if [ "$jarBaseName" = "services" ];then
+    echo ">>> in custom_jar $jarBaseName"
+    rm -rf $tempSmaliDir/smali/com/android/server/power/ShutdownThread*.smali
+	cp -rf ../base/services.jar.out/smali/com/android/server/power/ShutdownThread*.smali $tempSmaliDir/smali/com/android/server/power/
+fi
