@@ -2959,9 +2959,9 @@
 
     invoke-static/range {p1 .. p1}, Landroid/app/ApplicationPackageManager$FlymeInjector;->isFlymeCalendarPkg(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v6
 
-    if-nez v7, :cond_0
+    if-nez v6, :cond_0
 
     if-eqz v0, :cond_0
 
@@ -3782,7 +3782,7 @@
 
     move-result-object v7
 
-    invoke-static {v5, v6, v7}, Ltheme/content/res/LenovoAppIconThemeLog;->log_debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    # invoke-static {v5, v6, v7}, Ltheme/content/res/LenovoAppIconThemeLog;->log_debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 897
     :cond_0
