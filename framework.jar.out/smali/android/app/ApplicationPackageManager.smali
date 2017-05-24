@@ -3782,7 +3782,7 @@
 
     move-result-object v7
 
-    # invoke-static {v5, v6, v7}, Ltheme/content/res/LenovoAppIconThemeLog;->log_debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v6, v7}, Ltheme/content/res/LenovoAppIconThemeLog;->log_debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 897
     :cond_0
@@ -7027,7 +7027,7 @@
 
     move-result-object v5
 
-    invoke-static {v3, v4, v5}, Ltheme/content/res/LenovoAppIconThemeLog;->log_debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    # invoke-static {v3, v4, v5}, Ltheme/content/res/LenovoAppIconThemeLog;->log_debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 2205
     const-string v3, "PackageItemInfo"
@@ -7062,7 +7062,7 @@
 
     iget v4, p1, Landroid/content/pm/PackageItemInfo;->icon:I
 
-    invoke-virtual {p0, v3, v4, p2}, Landroid/app/ApplicationPackageManager;->getLenovoDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v3, v4, p2}, Landroid/app/ApplicationPackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
