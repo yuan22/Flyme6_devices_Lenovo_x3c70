@@ -195,10 +195,11 @@
     goto :goto_0
 .end method
 
-.method public getRankingScoreBase(II)F
+.method public getRankingScoreBase(Ljava/lang/String;II)F
     .locals 4
-    .param p1, "notificationPriority"    # I
-    .param p2, "categoryPriority"    # I
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "notificationPriority"    # I
+    .param p3, "categoryPriority"    # I
 
     .prologue
     :try_start_0
@@ -208,7 +209,7 @@
 
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
-    invoke-interface {v2, p1, p2}, Lmeizu/notification/INotificationFilterService;->getRankingScoreBase(II)F
+    invoke-interface {v2, p1, p2, p3}, Lmeizu/notification/INotificationFilterService;->getRankingScoreBase(Ljava/lang/String;II)F
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
@@ -410,6 +411,12 @@
     iget v4, v1, Lmeizu/notification/FilterResult;->score:F
 
     iput v4, v3, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
+
+    iget-object v3, p1, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
+
+    iget v4, v1, Lmeizu/notification/FilterResult;->correct_score:F
+
+    iput v4, v3, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->correct_score:F
 
     iget-object v3, p1, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
 

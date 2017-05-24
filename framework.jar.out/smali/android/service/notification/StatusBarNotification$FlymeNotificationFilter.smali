@@ -43,6 +43,8 @@
 
 .field public categoryPriority:I
 
+.field public correct_score:F
+
 .field public extras:Landroid/os/Bundle;
 
 .field public intercept:Z
@@ -100,6 +102,10 @@
 
     iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
 
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->correct_score:F
+
     iput-boolean v1, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->shouldAffectRanking:Z
 
     iput-boolean v1, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->shouldAffectIntercept:Z
@@ -131,6 +137,10 @@
     const/high16 v0, 0x42340000    # 45.0f
 
     iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->correct_score:F
 
     iput-boolean v2, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->shouldAffectRanking:Z
 
@@ -182,6 +192,12 @@
     move-result v0
 
     iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
+
+    move-result v0
+
+    iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->correct_score:F
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
@@ -276,6 +292,10 @@
     iget v1, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
 
     iput v1, v0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
+
+    iget v1, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->correct_score:F
+
+    iput v1, v0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->correct_score:F
 
     iget-boolean v1, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->shouldAffectRanking:Z
 
@@ -506,6 +526,10 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
     iget v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
+
+    iget v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->correct_score:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 

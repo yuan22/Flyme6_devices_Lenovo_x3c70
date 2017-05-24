@@ -1283,3 +1283,79 @@
     :cond_2
     return-void
 .end method
+
+.method static writeFlymeSettingsLPr(Lcom/android/server/pm/PackageManagerService;)V
+    .locals 3
+    .param p0, "pms"    # Lcom/android/server/pm/PackageManagerService;
+
+    .prologue
+    .line 17508
+    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+
+    monitor-enter v1
+
+    .line 17509
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+
+    const/16 v2, 0xd
+
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->hasMessages(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+
+    const/16 v2, 0xe
+
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->hasMessages(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 17510
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+
+    const/16 v2, 0xd
+
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->removeMessages(I)V
+
+    .line 17511
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+
+    const/16 v2, 0xe
+
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->removeMessages(I)V
+
+    .line 17512
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+
+    invoke-virtual {v0}, Lcom/android/server/pm/Settings;->writeLPr()V
+
+    .line 17513
+    invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService;->flymeGetFieldDirtyUsers()Landroid/util/ArraySet;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/util/ArraySet;->clear()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    monitor-exit v1
+
+    .line 17506
+    return-void
+
+    .line 17508
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method

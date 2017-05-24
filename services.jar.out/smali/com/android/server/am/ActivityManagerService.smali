@@ -11093,16 +11093,6 @@
     iput-object v9, p0, Lcom/android/server/am/ActivityManagerService;->mPreviousProcess:Lcom/android/server/am/ProcessRecord;
 
     :cond_14
-    invoke-static {p1}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->isRestartFavoriteApp(Lcom/android/server/am/ProcessRecord;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_flyme_0
-
-    const/4 v8, 0x1
-
-    :cond_flyme_0
-
     if-eqz v8, :cond_17
 
     iget-boolean v9, p1, Lcom/android/server/am/ProcessRecord;->isolated:Z
