@@ -1181,101 +1181,32 @@
 .end method
 
 .method private isHiFiApp()Z
-    .locals 7
+    .locals 3
 
     .prologue
     .line 3896
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     .line 3897
-    .local v2, "rv":Z
+    .local v1, "rv":Z
     invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
 
     move-result-object v0
 
     .line 3898
     .local v0, "context":Landroid/content/Context;
-    invoke-virtual {v0}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/content/Context;->isCts()Z
 
-    .line 3900
-    .local v1, "packageName":Ljava/lang/String;
-    sget-object v4, Landroid/media/MediaPlayer;->mHifiSupportedMediaApps:Ljava/util/HashSet;
+    move-result v2
 
-    if-nez v4, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 3901
-    const-string v4, "MediaPlayer"
+    const/4 v1, 0x0
 
-    const-string/jumbo v5, "mHifiSupportedMediaApps is null"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move v3, v2
-
-    .line 3909
-    .end local v2    # "rv":Z
-    .local v3, "rv":I
-    :goto_0
-    return v3
-
-    .line 3905
-    .end local v3    # "rv":I
-    .restart local v2    # "rv":Z
     :cond_0
-    if-eqz v1, :cond_1
-
-    sget-object v4, Landroid/media/MediaPlayer;->mHifiSupportedMediaApps:Ljava/util/HashSet;
-
-    invoke-virtual {v4, v1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    .line 3906
-    const/4 v2, 0x1
-
-    .line 3908
-    :cond_1
-    const-string v4, "MediaPlayer"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "HIFI: calling packagename is #####"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", return "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move v3, v2
-
-    .line 3909
-    .restart local v3    # "rv":I
-    goto :goto_0
+    return v1
 .end method
 
 .method private isHiFiUsed()Z
